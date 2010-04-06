@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="core" />
+		<Option makefile_is_custom="1" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="all">
+				<Option output="../target/debug/libcore" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-pedantic" />
+			<Add option="-Wall" />
+			<Add option="-ansi" />
+			<Add option="-g" />
+			<Add directory="." />
+		</Compiler>
+		<Unit filename="CMakeLists.txt" />
+		<Unit filename="include/buffers/filebuffer.h" />
+		<Unit filename="include/buffers/membuffer.h" />
+		<Unit filename="include/buffers/volatilebuffer.h" />
+		<Unit filename="include/iobuffer.h" />
+		<Unit filename="include/lock.h" />
+		<Unit filename="include/log/coutdisplay.h" />
+		<Unit filename="include/log/display.h" />
+		<Unit filename="include/log/logmanager.h" />
+		<Unit filename="include/log/message.h" />
+		<Unit filename="include/log/simplefiledisplay.h" />
+		<Unit filename="include/random.h" />
+		<Unit filename="include/random/lincong.h" />
+		<Unit filename="include/resultcode.h" />
+		<Unit filename="include/string.h" />
+		<Unit filename="includes-pch.h" />
+		<Unit filename="includes.h" />
+		<Unit filename="src/buffers/filebuffer.cpp" />
+		<Unit filename="src/buffers/membuffer.cpp" />
+		<Unit filename="src/buffers/volatilebuffer.cpp" />
+		<Unit filename="src/log/coutdisplay.cpp" />
+		<Unit filename="src/log/logmanager.cpp" />
+		<Unit filename="src/log/simplefiledisplay.cpp" />
+		<Unit filename="src/random/lincong.cpp" />
+		<Unit filename="src/random/random.cpp" />
+		<Unit filename="src/resultcode.cpp" />
+		<Unit filename="src/string.cpp" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

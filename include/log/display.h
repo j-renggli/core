@@ -1,0 +1,28 @@
+#ifndef COMMON_LOGGING_DISPLAY_H
+#define COMMON_LOGGING_DISPLAY_H
+
+// Local
+#include "../../includes.h"
+
+namespace core {
+
+////////////////////////////////////////////////////////////////
+
+class Message;
+
+////////////////////////////////////////////////////////////////
+
+class IDisplay
+{
+  public:
+    virtual ~IDisplay() {}
+
+  public:
+    virtual void display(const Message& msg) = 0;
+};
+
+////////////////////////////////////////////////////////////////
+
+}
+
+#endif
