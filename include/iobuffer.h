@@ -1,5 +1,4 @@
-#ifndef CORE_INCLUDE_IOBUFFER_H
-#define CORE_INCLUDE_IOBUFFER_H
+#pragma once
 
 #include <vector>
 #include <sys/types.h>
@@ -110,5 +109,3 @@ class IReadWriteBuffer : virtual public IReadBuffer, virtual public IWriteBuffer
 };
 
 }
-
-#endif

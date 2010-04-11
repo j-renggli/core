@@ -1,9 +1,10 @@
-#ifndef CORE_INCLUDE_BUFFERS_FILE_H
-#define CORE_INCLUDE_BUFFERS_FILE_H
+#pragma once
 
 #include "membuffer.h"
 #include "../iobuffer.h"
 #include "../resultcode.h"
+
+#include <boost/filesystem.hpp>
 
 namespace core {
 
@@ -104,5 +105,3 @@ class FileWriteBuffer : virtual public MemBuffer
 };
 
 }
-
-#endif

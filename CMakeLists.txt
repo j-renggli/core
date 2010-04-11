@@ -5,10 +5,15 @@ cmake_minimum_required(VERSION 2.6)
 ######## SETUP ########
 
 SET(CMAKE_VERBOSE_MAKEFILE 0)
-SET(CMAKE_CXX_FLAGS_DEBUG "-Wall -O -ansi -pedantic -g -pg")
+SET(CMAKE_CXX_FLAGS_DEBUG "-Wall -O -ansi -pedantic -g -pg -DDEBUG")
 SET(CMAKE_CXX_FLAGS_RELEASE "-Wall -O3 -ansi -pedantic -g -pg")
 
 SET(CMAKE_LIBRARY_OUTPUT_DIRECTORY ../bin)
+
+#IF(CMAKE_BUILD_TYPE STREQUAL "Debug")
+## OR CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo" )
+#  ADD_DEFINITIONS("-DDEBUG")
+#ENDIF()
 
 ######## SOURCE CODE ########
 
@@ -21,6 +26,7 @@ src/string.cpp
 
 src/buffers/filebuffer.cpp
 src/buffers/membuffer.cpp
+src/buffers/tempfilebuffer.cpp
 src/buffers/volatilebuffer.cpp
 
 src/log/coutdisplay.cpp

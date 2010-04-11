@@ -29,6 +29,8 @@
 #include <unicode/ustream.h>
 
 // Core
+#include "lpassert.h"
+
 #include "include/iobuffer.h"
 #include "include/lock.h"
 #include "include/resultcode.h"
@@ -36,6 +38,7 @@
 
 #include "include/buffers/filebuffer.h"
 #include "include/buffers/membuffer.h"
+#include "include/buffers/tempfilebuffer.h"
 #include "include/buffers/volatilebuffer.h"
 
 #include "include/log/logmanager.h"

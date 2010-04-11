@@ -1,5 +1,4 @@
-#ifndef CORE_INCLUDE_BUFFERS_VOLATILE_H
-#define CORE_INCLUDE_BUFFERS_VOLATILE_H
+#pragma once
 
 #include "../../includes.h"
 
@@ -43,13 +42,18 @@ class VolatileBuffer : virtual public IReadBuffer
     /// Direct access to buffer
     virtual const Buffer* getBuffer() const { return pBuffer_; }
 
+    /// Get the position of the buffer's cursor
+    virtual size_t getPosition() const { return uiPos_; }
+
     /// Read N characters
     virtual void readData(Buffer* pBuffer, size_t uiSize) const;
+
+    /// Set the position of the buffer's cursor
+    /// @param uiNewPos the position; uiSize if uiNewPos >= uiSize
+    void setPosition(size_t uiNewPos);
 
     /// Get the current size of the buffer
     virtual size_t getSize() const { return uiSize_; }
 };
 
 }
-
-#endif

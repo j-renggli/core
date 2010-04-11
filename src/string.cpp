@@ -2,7 +2,7 @@
 
 #include <unicode/ucnv.h>
 #include <unicode/ucnv_err.h>
-#include <iostream>
+
 ////////////////////////////////////////////////////////////////
 
 namespace core {

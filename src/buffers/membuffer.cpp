@@ -42,7 +42,7 @@ MemBuffer& MemBuffer::operator=(const MemBuffer& buffer)
 
 void MemBuffer::readData(Buffer* pBuffer, size_t uiSize) const
 {
-  assert(uiPos_ + uiSize <= uiSize_);
+  ASSERT(uiPos_ + uiSize <= uiSize_);
 
   memcpy(pBuffer, &pBuffer_[uiPos_], uiSize);
   uiPos_ += uiSize;

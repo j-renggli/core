@@ -22,8 +22,11 @@ typedef boost::lock_guard<Mutex> SimpleLock;
 // Normal lock: can lock() and unlock() multiple times
 typedef boost::unique_lock<Mutex> NormalLock;
 
-// Read-only lock: multiple readers can access data at the same time
+// Reader lock: multiple readers can access data at the same time
 typedef boost::shared_lock<SharedMutex> ReaderLock;
+
+// Writer lock: single writer can access data at a given time
+typedef boost::unique_lock<SharedMutex> WriterLock;
 
 // Condition : lock will wait until condition is fulfilled
 typedef boost::condition_variable LockCondition;

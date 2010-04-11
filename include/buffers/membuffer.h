@@ -1,5 +1,4 @@
-#ifndef CORE_INCLUDE_BUFFERS_MEMORY_H
-#define CORE_INCLUDE_BUFFERS_MEMORY_H
+#pragma once
 
 #include "../iobuffer.h"
 
@@ -78,5 +77,3 @@ class MemBuffer : virtual public IReadWriteBuffer
 };
 
 }
-
-#endif

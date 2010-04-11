@@ -7,14 +7,31 @@
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
-			<Target title="all">
-				<Option output="../target/debug/libcore" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Debug/" />
+			<Target title="debug">
+				<Option output="../build/debug/bin/libcore" prefix_auto="1" extension_auto="1" />
 				<Option type="3" />
 				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-g" />
-				</Compiler>
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<MakeCommands>
+					<Build command="(cd ../build/debug; $make -f $makefile core)" />
+					<CompileFile command="(cd ../build/debug; $make -f $makefile $file)" />
+					<Clean command="(cd ../build/debug; $make -f $makefile clean)" />
+					<DistClean command="(cd ../build/debug; $make -f $makefile distclean)" />
+				</MakeCommands>
+			</Target>
+			<Target title="release">
+				<Option output="../build/release/bin/libcore" prefix_auto="1" extension_auto="1" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<MakeCommands>
+					<Build command="(cd ../build/release; $make -f $makefile core)" />
+					<CompileFile command="(cd ../build/release; $make -f $makefile $file)" />
+					<Clean command="(cd ../build/release; $make -f $makefile clean)" />
+					<DistClean command="(cd ../build/release; $make -f $makefile distclean)" />
+				</MakeCommands>
 			</Target>
 		</Build>
 		<Compiler>
@@ -27,6 +44,7 @@
 		<Unit filename="CMakeLists.txt" />
 		<Unit filename="include/buffers/filebuffer.h" />
 		<Unit filename="include/buffers/membuffer.h" />
+		<Unit filename="include/buffers/tempfilebuffer.h" />
 		<Unit filename="include/buffers/volatilebuffer.h" />
 		<Unit filename="include/iobuffer.h" />
 		<Unit filename="include/lock.h" />
@@ -43,6 +61,7 @@
 		<Unit filename="includes.h" />
 		<Unit filename="src/buffers/filebuffer.cpp" />
 		<Unit filename="src/buffers/membuffer.cpp" />
+		<Unit filename="src/buffers/tempfilebuffer.cpp" />
 		<Unit filename="src/buffers/volatilebuffer.cpp" />
 		<Unit filename="src/log/coutdisplay.cpp" />
 		<Unit filename="src/log/logmanager.cpp" />
@@ -54,6 +73,7 @@
 		<Extensions>
 			<code_completion />
 			<debugger />
+			<envvars />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

@@ -56,7 +56,7 @@ void LogManager::registerDisplay(const DisplayPtr& ptrDisplay)
 Message& LogManager::startLog(ELevel eLevel, const std::string& strFile, int iLine)
 {
   core::SimpleLock* pLock = new core::SimpleLock(mutex_);
-  assert(pLock_ == NULL);
+  ASSERT(pLock_ == NULL);
   pLock_ = pLock;
 
   msg_.reset(eLevel, strFile, iLine);
@@ -70,10 +70,10 @@ void LogManager::stopLog()
   if (pLock_ == NULL)
     return;
 
-//  assert(vfctDisplay_.size() == vLevels_.size());
+//  ASSERT(vfctDisplay_.size() == vLevels_.size());
   for (size_t iDisplay = 0; iDisplay < vDisplays_.size(); ++iDisplay)
   {
-    assert(vDisplays_[iDisplay]!= NULL);
+    ASSERT(vDisplays_[iDisplay]!= NULL);
     vDisplays_[iDisplay]->display(msg_);
   }
 
