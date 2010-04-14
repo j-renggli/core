@@ -148,21 +148,6 @@ void IReadBuffer::readValue(UnicodeString& value) const
 }
 
 ////////////////////////////////////////////////////////////////
-
-//template <class T>
-//IWriteBuffer& IWriteBuffer::operator<<(const std::vector<T>& vVals)
-//{
-//  *this << u_int32_t(vVals.size());
-//
-//  for (size_t i = 0; i < vVals.size(); ++i)
-//  {
-//    *this << vVals[i];
-//  }
-//
-//  return *this;
-//}
-
-////////////////////////////////////////////////////////////////
 // Write
 ////////////////////////////////////////////////////////////////
 

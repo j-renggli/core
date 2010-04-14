@@ -24,6 +24,7 @@ class VolatileBuffer : virtual public IReadBuffer
   ////////////////////////////////////////////////////////////////
   public:
     VolatileBuffer(const Buffer* pBuffer, size_t uiSize);
+    VolatileBuffer(const IReadBuffer& buffer);
 
     virtual ~VolatileBuffer() {}
 

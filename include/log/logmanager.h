@@ -13,6 +13,7 @@
 #define LOG_NON_FATAL(a) core::gLogManager.startLog(core::LogManager::eNonFatal, __FILE__, __LINE__) << a; core::gLogManager.stopLog();
 #define LOG_WARNING(a) core::gLogManager.startLog(core::LogManager::eWarning, __FILE__, __LINE__) << a; core::gLogManager.stopLog();
 #define LOG_ERROR(a) core::gLogManager.startLog(core::LogManager::eError, __FILE__, __LINE__) << a; core::gLogManager.stopLog();
+#define LOG_ASSERT(a) core::gLogManager.startLog(core::LogManager::eAssert, __FILE__, __LINE__) << a; core::gLogManager.stopLog();
 
 namespace core {
 
@@ -35,7 +36,8 @@ class LogManager
       ePrivate  = 20,
       eNonFatal = 30,
       eWarning  = 40,
-      eError    = 50
+      eError    = 50,
+      eAssert   = 60
     };
 
     typedef boost::shared_ptr<IDisplay> DisplayPtr;

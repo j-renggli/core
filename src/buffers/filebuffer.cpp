@@ -24,6 +24,8 @@ FileReadBuffer::~FileReadBuffer()
 void FileReadBuffer::readData(Buffer* pBuffer, size_t uiSize) const
 {
   ASSERT(uiPos_ + uiSize <= uiSize_);
+  if (uiPos_ + uiSize > uiSize_)
+    throw std::domain_error("Reading too far in the file");
 
   memcpy(pBuffer, &pBuffer_[uiPos_], uiSize);
   uiPos_ += uiSize;
@@ -43,7 +45,6 @@ ResultCode FileReadBuffer::restore(const boost::filesystem::path& pathFile)
   {
     return rcFailure;
   }
-
   uiPos_ = 0;
   uiSize_ = 4096;
   char pTemp[4096];
@@ -89,16 +90,71 @@ void FileReadBuffer::setPosition(size_t uiNewPos)
 
 ////////////////////////////////////////////////////////////////
 
-FileWriteBuffer::FileWriteBuffer() :
-MemBuffer()
+FileReadWriteBuffer::FileReadWriteBuffer(const boost::filesystem::path& filePath) :
+MemBuffer(),
+pathFile_(filePath)
 {
 }
 
 ////////////////////////////////////////////////////////////////
 
-ResultCode FileWriteBuffer::serialise(const boost::filesystem::path& pathFile)
+ResultCode FileReadWriteBuffer::changePath(const boost::filesystem::path& filePath)
 {
-  std::ofstream fileOut(pathFile.native_file_string().c_str(), std::ios::binary);
+  pathFile_ = filePath;
+
+  return rcSuccess;
+}
+
+////////////////////////////////////////////////////////////////
+
+ResultCode FileReadWriteBuffer::restore()
+{
+  if (!exists(pathFile_) || !is_regular(pathFile_))
+  {
+    return rcFailure;
+  }
+
+  std::ifstream fileIn(pathFile_.native_file_string().c_str(), std::ios::binary);
+  if (!fileIn)
+  {
+    return rcFailure;
+  }
+
+  setPosition(0);
+  const size_t size = 4096;
+  resize(size);
+
+  char pTemp[size];
+  while (true)
+  {
+    fileIn.read(pTemp, size);
+    if (fileIn.bad())
+    {
+      return rcFailure;
+    }
+
+    size_t uiCount = fileIn.gcount();
+    if (uiCount == 0)
+      break;
+
+    writeData((const Buffer*)pTemp, uiCount);
+
+    if (uiCount < size)
+      break;
+  }
+
+  setPosition(0);
+
+  fileIn.close();
+
+  return rcSuccess;
+}
+
+////////////////////////////////////////////////////////////////
+
+ResultCode FileReadWriteBuffer::serialise()
+{
+  std::ofstream fileOut(pathFile_.native_file_string().c_str(), std::ios::binary);
   if (!fileOut)
   {
     return rcFailure;

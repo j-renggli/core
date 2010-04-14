@@ -4,7 +4,7 @@
 
 namespace core {
 
-class TemporaryFileBuffer : virtual public FileWriteBuffer
+class TemporaryFileBuffer : virtual public FileReadWriteBuffer
 {
   ////////////////////////////////////////////////////////////////
   // Statics

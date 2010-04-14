@@ -59,10 +59,12 @@
 		<Unit filename="include/string.h" />
 		<Unit filename="includes-pch.h" />
 		<Unit filename="includes.h" />
+		<Unit filename="lpassert.h" />
 		<Unit filename="src/buffers/filebuffer.cpp" />
 		<Unit filename="src/buffers/membuffer.cpp" />
 		<Unit filename="src/buffers/tempfilebuffer.cpp" />
 		<Unit filename="src/buffers/volatilebuffer.cpp" />
+		<Unit filename="src/iobuffer.cpp" />
 		<Unit filename="src/log/coutdisplay.cpp" />
 		<Unit filename="src/log/logmanager.cpp" />
 		<Unit filename="src/log/simplefiledisplay.cpp" />

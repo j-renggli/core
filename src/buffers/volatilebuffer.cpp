@@ -9,7 +9,15 @@ namespace core {
 VolatileBuffer::VolatileBuffer(const Buffer* pBuffer, size_t uiSize) :
 pBuffer_(pBuffer), uiSize_(uiSize), uiPos_(0)
 {
-  ASSERT(pBuffer != NULL || uiSize_ == 0);
+  ASSERT(pBuffer_ != NULL || uiSize_ == 0);
+}
+
+////////////////////////////////////////////////////////////////
+
+VolatileBuffer::VolatileBuffer(const IReadBuffer& buffer) :
+pBuffer_(buffer.getBuffer()), uiSize_(buffer.getSize()), uiPos_(0)
+{
+  ASSERT(pBuffer_ != NULL || uiSize_ == 0);
 }
 
 ////////////////////////////////////////////////////////////////

@@ -72,7 +72,7 @@ class FileReadBuffer : virtual public IReadBuffer
 
 ////////////////////////////////////////////////////////////////
 
-class FileWriteBuffer : virtual public MemBuffer
+class FileReadWriteBuffer : virtual public MemBuffer
 {
   ////////////////////////////////////////////////////////////////
   // Definitions
@@ -81,27 +81,37 @@ class FileWriteBuffer : virtual public MemBuffer
   ////////////////////////////////////////////////////////////////
   // Members
   ////////////////////////////////////////////////////////////////
+  private:
+    boost::filesystem::path pathFile_;
 
   ////////////////////////////////////////////////////////////////
   // Constructors & Destructor
   ////////////////////////////////////////////////////////////////
   public:
-    FileWriteBuffer();
-    virtual ~FileWriteBuffer() {}
+    FileReadWriteBuffer(const boost::filesystem::path& filePath = "");
+    virtual ~FileReadWriteBuffer() {}
 
   ////////////////////////////////////////////////////////////////
   // Operators
   ////////////////////////////////////////////////////////////////
   private:
     // Assignment: disabled
-    FileWriteBuffer& operator=(const FileWriteBuffer& buffer) { return *this; }
+    FileReadWriteBuffer& operator=(const FileReadWriteBuffer& buffer) { return *this; }
 
   ////////////////////////////////////////////////////////////////
   // Functions
   ////////////////////////////////////////////////////////////////
   public:
+    /// Change the path
+    ResultCode changePath(const boost::filesystem::path& filePath);
+
+    /// Restore a buffer from a file
+    ResultCode restore();
+
     /// Serialise the buffer to the file on disk
-    ResultCode serialise(const boost::filesystem::path& pathFile);
+    ResultCode serialise();
 };
+
+////////////////////////////////////////////////////////////////
 
 }

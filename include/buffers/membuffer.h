@@ -33,6 +33,8 @@ class MemBuffer : virtual public IReadWriteBuffer
   ////////////////////////////////////////////////////////////////
   public:
     MemBuffer();
+    MemBuffer(const IReadBuffer& buffer);
+
     virtual ~MemBuffer();
 
   ////////////////////////////////////////////////////////////////
@@ -40,7 +42,7 @@ class MemBuffer : virtual public IReadWriteBuffer
   ////////////////////////////////////////////////////////////////
   public:
     // Assignment
-    MemBuffer& operator=(const MemBuffer& buffer);
+    MemBuffer& operator=(const IReadBuffer& buffer);
 
   ////////////////////////////////////////////////////////////////
   // Functions

@@ -1,3 +1,6 @@
+#ifndef EXPORT
+#define EXPORT __attribute__((visibility("default")))
+#endif
 
 // STL
 #include <cassert>
