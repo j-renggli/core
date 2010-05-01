@@ -47,6 +47,19 @@ class IReadBuffer
       return value;
     }
 
+    /// Read the most common objects in vector form
+    template <class T>
+    void readValue(std::vector<T>& vValues) const
+    {
+      const size_t size = read<u_int32_t>();
+      vValues.resize(size);
+
+      for (size_t i = 0; i < size; ++i)
+      {
+        readValue(vValues[i]);
+      }
+    }
+
     /// Get the position of the buffer's cursor
     virtual size_t getPosition() const = 0;
 
@@ -93,6 +106,18 @@ class IWriteBuffer
     /// Write most common objects; can be extended !
     template <class T>
     void write(const T& value);
+
+    /// Write the most common objects in vector form
+    template <class T>
+    void write(const std::vector<T>& vValues)
+    {
+      write<u_int32_t>(vValues.size());
+
+      for (size_t i = 0; i < vValues.size(); ++i)
+      {
+        write(vValues[i]);
+      }
+    }
 };
 
 ////////////////////////////////////////////////////////////////
