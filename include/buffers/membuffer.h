@@ -23,10 +23,10 @@ class MemBuffer : virtual public IReadWriteBuffer
     size_t uiMaxSize_;
 
     /// The current size of the buffer
-    mutable size_t uiSize_;
+    size_t uiSize_;
 
     /// The current position
-    mutable size_t uiPos_;
+    size_t uiPos_;
 
   ////////////////////////////////////////////////////////////////
   // Constructors & Destructor
@@ -34,6 +34,7 @@ class MemBuffer : virtual public IReadWriteBuffer
   public:
     MemBuffer();
     MemBuffer(const IReadBuffer& buffer);
+    MemBuffer(const MemBuffer& buffer);
 
     virtual ~MemBuffer();
 
@@ -43,6 +44,7 @@ class MemBuffer : virtual public IReadWriteBuffer
   public:
     // Assignment
     MemBuffer& operator=(const IReadBuffer& buffer);
+    MemBuffer& operator=(const MemBuffer& buffer);
 
   ////////////////////////////////////////////////////////////////
   // Functions
@@ -62,7 +64,7 @@ class MemBuffer : virtual public IReadWriteBuffer
     virtual size_t getPosition() const { return uiPos_; }
 
     /// Read N characters
-    virtual void readData(Buffer* pBuffer, size_t uiSize) const;
+    virtual void readData(Buffer* pBuffer, size_t uiSize);
 
     /// Resize the buffer : max size might be larger to avoid too many reallocations
     void resize(size_t uiNewSize);

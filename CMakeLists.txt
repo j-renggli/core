@@ -10,11 +10,6 @@ SET(CMAKE_CXX_FLAGS_RELEASE "-Wall -O3 -ansi -pedantic -g -pg")
 
 SET(CMAKE_LIBRARY_OUTPUT_DIRECTORY ../bin)
 
-#IF(CMAKE_BUILD_TYPE STREQUAL "Debug")
-## OR CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo" )
-#  ADD_DEFINITIONS("-DDEBUG")
-#ENDIF()
-
 ######## SOURCE CODE ########
 
 INCLUDE_DIRECTORIES(.)
@@ -41,6 +36,7 @@ src/random/random.cpp
 
 LINK_LIBRARIES(
 boost_filesystem-mt
+#boost_system-mt
 boost_thread-mt
 icuio
 )

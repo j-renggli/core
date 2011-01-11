@@ -21,7 +21,7 @@ FileReadBuffer::~FileReadBuffer()
 
 ////////////////////////////////////////////////////////////////
 
-void FileReadBuffer::readData(Buffer* pBuffer, size_t uiSize) const
+void FileReadBuffer::readData(Buffer* pBuffer, size_t uiSize)
 {
   ASSERT(uiPos_ + uiSize <= uiSize_);
   if (uiPos_ + uiSize > uiSize_)
@@ -88,6 +88,8 @@ void FileReadBuffer::setPosition(size_t uiNewPos)
     uiPos_ = uiNewPos;
 }
 
+////////////////////////////////////////////////////////////////
+// File read & write
 ////////////////////////////////////////////////////////////////
 
 FileReadWriteBuffer::FileReadWriteBuffer(const boost::filesystem::path& filePath) :

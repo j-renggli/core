@@ -1,5 +1,4 @@
-#ifndef COMMON_LOGGING_COUTDISPLAY_H
-#define COMMON_LOGGING_COUTDISPLAY_H
+#pragma once
 
 #include "display.h"
 #include "message.h"
@@ -21,5 +20,3 @@ class COutDisplay : public IDisplay
 };
 
 }
-
-#endif

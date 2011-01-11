@@ -18,6 +18,8 @@
 					<CompileFile command="(cd ../build/debug; $make -f $makefile $file)" />
 					<Clean command="(cd ../build/debug; $make -f $makefile clean)" />
 					<DistClean command="(cd ../build/debug; $make -f $makefile distclean)" />
+					<AskRebuildNeeded command="(cd ../build/debug; $make -q -f $makefile core)" />
+					<SilentBuild command="(cd ../build/debug; $make -s -f $makefile core)" />
 				</MakeCommands>
 			</Target>
 			<Target title="release">
@@ -31,6 +33,8 @@
 					<CompileFile command="(cd ../build/release; $make -f $makefile $file)" />
 					<Clean command="(cd ../build/release; $make -f $makefile clean)" />
 					<DistClean command="(cd ../build/release; $make -f $makefile distclean)" />
+					<AskRebuildNeeded command="(cd ../build/release; $make -q -f $makefile core)" />
+					<SilentBuild command="(cd ../build/release; $make -s -f $makefile core)" />
 				</MakeCommands>
 			</Target>
 		</Build>

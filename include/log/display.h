@@ -1,5 +1,4 @@
-#ifndef COMMON_LOGGING_DISPLAY_H
-#define COMMON_LOGGING_DISPLAY_H
+#pragma once
 
 // Local
 #include "../../includes.h"
@@ -24,5 +23,3 @@ class IDisplay
 ////////////////////////////////////////////////////////////////
 
 }
-
-#endif

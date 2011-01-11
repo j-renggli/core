@@ -7,7 +7,7 @@ namespace core {
 ////////////////////////////////////////////////////////////////
 
 template <>
-void IReadBuffer::readValue(bool& value) const
+void IReadBuffer::readValue(bool& value)
 {
   int8_t val = read<int8_t>();
   value = val != 0;
@@ -16,7 +16,7 @@ void IReadBuffer::readValue(bool& value) const
 ////////////////////////////////////////////////////////////////
 
 template <>
-void IReadBuffer::readValue(u_int8_t& value) const
+void IReadBuffer::readValue(u_int8_t& value)
 {
   readData(&value, 1);
 }
@@ -24,7 +24,7 @@ void IReadBuffer::readValue(u_int8_t& value) const
 ////////////////////////////////////////////////////////////////
 
 template <>
-void IReadBuffer::readValue(int8_t& value) const
+void IReadBuffer::readValue(int8_t& value)
 {
   readData((u_int8_t*)(&value), 1);
 }
@@ -32,7 +32,7 @@ void IReadBuffer::readValue(int8_t& value) const
 ////////////////////////////////////////////////////////////////
 
 template <>
-void IReadBuffer::readValue(u_int16_t& value) const
+void IReadBuffer::readValue(u_int16_t& value)
 {
   value = 0;
   Buffer buffer[2];
@@ -47,7 +47,7 @@ void IReadBuffer::readValue(u_int16_t& value) const
 ////////////////////////////////////////////////////////////////
 
 template <>
-void IReadBuffer::readValue(int16_t& value) const
+void IReadBuffer::readValue(int16_t& value)
 {
   value = 0;
   Buffer buffer[2];
@@ -62,7 +62,7 @@ void IReadBuffer::readValue(int16_t& value) const
 ////////////////////////////////////////////////////////////////
 
 template <>
-void IReadBuffer::readValue(u_int32_t& value) const
+void IReadBuffer::readValue(u_int32_t& value)
 {
   value = 0;
   Buffer buffer[4];
@@ -77,7 +77,7 @@ void IReadBuffer::readValue(u_int32_t& value) const
 ////////////////////////////////////////////////////////////////
 
 template <>
-void IReadBuffer::readValue(int32_t& value) const
+void IReadBuffer::readValue(int32_t& value)
 {
   value = 0;
   Buffer buffer[4];
@@ -92,7 +92,7 @@ void IReadBuffer::readValue(int32_t& value) const
 ////////////////////////////////////////////////////////////////
 
 template <>
-void IReadBuffer::readValue(u_int64_t& value) const
+void IReadBuffer::readValue(u_int64_t& value)
 {
   value = 0;
   Buffer buffer[8];
@@ -107,7 +107,7 @@ void IReadBuffer::readValue(u_int64_t& value) const
 ////////////////////////////////////////////////////////////////
 
 template <>
-void IReadBuffer::readValue(int64_t& value) const
+void IReadBuffer::readValue(int64_t& value)
 {
   value = 0;
   Buffer buffer[8];
@@ -122,7 +122,7 @@ void IReadBuffer::readValue(int64_t& value) const
 ////////////////////////////////////////////////////////////////
 
 template <>
-void IReadBuffer::readValue(float& value) const
+void IReadBuffer::readValue(float& value)
 {
   readData((Buffer*)(&value), sizeof(float));
 }
@@ -130,7 +130,7 @@ void IReadBuffer::readValue(float& value) const
 ////////////////////////////////////////////////////////////////
 
 template <>
-void IReadBuffer::readValue(double& value) const
+void IReadBuffer::readValue(double& value)
 {
   readData((Buffer*)(&value), sizeof(double));
 }
@@ -138,7 +138,7 @@ void IReadBuffer::readValue(double& value) const
 ////////////////////////////////////////////////////////////////
 
 template <>
-void IReadBuffer::readValue(UnicodeString& value) const
+void IReadBuffer::readValue(UnicodeString& value)
 {
   uint32_t uiLen = read<uint32_t>();
   Buffer* pszBuffer = new Buffer[uiLen];

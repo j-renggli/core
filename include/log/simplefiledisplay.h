@@ -1,5 +1,4 @@
-#ifndef COMMON_LOGGING_SIMPLEFILEDISPLAY_H
-#define COMMON_LOGGING_SIMPLEFILEDISPLAY_H
+#pragma once
 
 #include "display.h"
 #include "message.h"
@@ -41,5 +40,3 @@ class SimpleFileDisplay : public IDisplay
 };
 
 }
-
-#endif

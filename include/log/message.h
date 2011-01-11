@@ -1,8 +1,8 @@
-#ifndef COMMON_LOGGING_MESSAGE_H
-#define COMMON_LOGGING_MESSAGE_H
+#pragma once
 
 // Local
 #include "../../includes.h"
+#include <boost/date_time/posix_time/posix_time.hpp>
 
 namespace core {
 
@@ -57,5 +57,3 @@ class Message
 ////////////////////////////////////////////////////////////////
 
 }
-
-#endif

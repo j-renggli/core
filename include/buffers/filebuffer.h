@@ -24,10 +24,10 @@ class FileReadBuffer : virtual public IReadBuffer
     Buffer* pBuffer_;
 
     /// The current size of the buffer
-    mutable size_t uiSize_;
+    size_t uiSize_;
 
     /// The current position
-    mutable size_t uiPos_;
+    size_t uiPos_;
 
   ////////////////////////////////////////////////////////////////
   // Constructors & Destructor
@@ -57,7 +57,7 @@ class FileReadBuffer : virtual public IReadBuffer
     virtual size_t getPosition() const { return uiPos_; }
 
     /// Read N characters
-    virtual void readData(Buffer* pBuffer, size_t uiSize) const;
+    virtual void readData(Buffer* pBuffer, size_t uiSize);
 
     /// Restore a buffer from a file
     ResultCode restore(const boost::filesystem::path& pathFile);

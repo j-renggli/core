@@ -1,5 +1,4 @@
-#ifndef core_LOGGING_MANAGER_H
-#define core_LOGGING_MANAGER_H
+#pragma once
 
 // Local
 #include "../../includes.h"
@@ -99,5 +98,3 @@ class LogManager
 extern LogManager gLogManager;
 
 }
-
-#endif // core_LOGMANAGER_H

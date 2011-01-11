@@ -27,6 +27,17 @@ uiPos_(0)
 
 ////////////////////////////////////////////////////////////////
 
+MemBuffer::MemBuffer(const MemBuffer& buffer):
+pBuffer_(NULL),
+uiMaxSize_(0),
+uiSize_(0),
+uiPos_(0)
+{
+  *this = buffer;
+}
+
+////////////////////////////////////////////////////////////////
+
 MemBuffer::~MemBuffer()
 {
   if (pBuffer_!= NULL)
@@ -51,7 +62,23 @@ MemBuffer& MemBuffer::operator=(const IReadBuffer& buffer)
 
 ////////////////////////////////////////////////////////////////
 
-void MemBuffer::readData(Buffer* pBuffer, size_t uiSize) const
+MemBuffer& MemBuffer::operator=(const MemBuffer& buffer)
+{
+  if (&buffer == this)
+    return *this;
+
+  delete pBuffer_;
+  pBuffer_ = new Buffer[buffer.getSize()];
+  memcpy(pBuffer_, buffer.getBuffer(), buffer.getSize());
+  uiMaxSize_ = buffer.getSize();
+  uiSize_ = uiMaxSize_;
+  uiPos_ = 0;
+  return *this;
+}
+
+////////////////////////////////////////////////////////////////
+
+void MemBuffer::readData(Buffer* pBuffer, size_t uiSize)
 {
   ASSERT(uiPos_ + uiSize <= uiSize_);
 

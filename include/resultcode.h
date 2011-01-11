@@ -1,5 +1,4 @@
-#ifndef CORE_INCLUDE_RESULTCODE_H
-#define CORE_INCLUDE_RESULTCODE_H
+#pragma once
 
 #include <sys/types.h>
 
@@ -62,5 +61,3 @@ extern ResultCode rcFailure;
 extern ResultCode rcSuccess;
 
 }
-
-#endif

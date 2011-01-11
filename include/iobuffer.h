@@ -33,14 +33,14 @@ class IReadBuffer
     virtual const Buffer* getBuffer() const = 0;
 
     /// Read N characters
-    virtual void readData(Buffer* pBuffer, const size_t uiSize) const = 0;
+    virtual void readData(Buffer* pBuffer, const size_t uiSize) = 0;
 
     /// Useful functions to read most common objects; can be extended !
     template <class T>
-    void readValue(T& value) const;
+    void readValue(T& value);
 
     template <class T>
-    T read() const
+    T read()
     {
       T value;
       readValue(value);
@@ -49,7 +49,7 @@ class IReadBuffer
 
     /// Read the most common objects in vector form
     template <class T>
-    void readValue(std::vector<T>& vValues) const
+    void readValue(std::vector<T>& vValues)
     {
       const size_t size = read<u_int32_t>();
       vValues.resize(size);
@@ -135,10 +135,6 @@ class IReadWriteBuffer : virtual public IReadBuffer, virtual public IWriteBuffer
   ////////////////////////////////////////////////////////////////
   public:
     virtual void setPosition(size_t uiNewPos) = 0;
-//    {
-//      IReadBuffer::setPosition(uiNewPos);
-//      IWriteBuffer::setPosition(uiNewPos);
-//    }
 };
 
 }

@@ -22,7 +22,15 @@ pBuffer_(buffer.getBuffer()), uiSize_(buffer.getSize()), uiPos_(0)
 
 ////////////////////////////////////////////////////////////////
 
-void VolatileBuffer::readData(Buffer* pBuffer, size_t uiSize) const
+VolatileBuffer::VolatileBuffer(const VolatileBuffer& buffer) :
+pBuffer_(buffer.getBuffer()), uiSize_(buffer.getSize()), uiPos_(0)
+{
+  ASSERT(pBuffer_ != NULL || uiSize_ == 0);
+}
+
+////////////////////////////////////////////////////////////////
+
+void VolatileBuffer::readData(Buffer* pBuffer, size_t uiSize)
 {
   ASSERT(uiPos_ + uiSize <= uiSize_);
 

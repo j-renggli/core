@@ -17,7 +17,7 @@ class VolatileBuffer : virtual public IReadBuffer
     const size_t uiSize_;
 
     /// The current position
-    mutable size_t uiPos_;
+    size_t uiPos_;
 
   ////////////////////////////////////////////////////////////////
   // Constructors & Destructor
@@ -25,6 +25,7 @@ class VolatileBuffer : virtual public IReadBuffer
   public:
     VolatileBuffer(const Buffer* pBuffer, size_t uiSize);
     VolatileBuffer(const IReadBuffer& buffer);
+    VolatileBuffer(const VolatileBuffer& buffer);
 
     virtual ~VolatileBuffer() {}
 
@@ -47,7 +48,7 @@ class VolatileBuffer : virtual public IReadBuffer
     virtual size_t getPosition() const { return uiPos_; }
 
     /// Read N characters
-    virtual void readData(Buffer* pBuffer, size_t uiSize) const;
+    virtual void readData(Buffer* pBuffer, size_t uiSize);
 
     /// Set the position of the buffer's cursor
     /// @param uiNewPos the position; uiSize if uiNewPos >= uiSize
