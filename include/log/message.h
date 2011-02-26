@@ -47,9 +47,24 @@ class Message
 
     const std::string getMessage() const { return ssMsg_.str(); }
 
-    template<class T> Message& operator<<(T t)
+    /// Add something to the message, return the message for further writing
+    template<class T> Message& operator<<(const T& t)
     {
       ssMsg_ << t;
+      return *this;
+    }
+
+    /// Overloaded operator for result codes
+    Message& operator<<(const ResultCode& rc)
+    {
+      if (rc.isFailure())
+        ssMsg_ << "Failure [" << (rc.getValue() & rc.eValueMask) << "]";
+      else if (rc.isWarning())
+        ssMsg_ << "Warning [" << (rc.getValue() & rc.eValueMask) << "]";
+      else if (rc.isSuccess())
+        ssMsg_ << "Success";
+      else
+        ssMsg_ << "Result code [" << rc.getValue() << "]";
       return *this;
     }
 };

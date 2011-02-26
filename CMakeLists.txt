@@ -36,6 +36,7 @@ src/random/random.cpp
 
 LINK_LIBRARIES(
 boost_filesystem-mt
+boost_system-mt
 boost_thread-mt
 icuio
 )
