@@ -10,10 +10,6 @@ namespace core {
 class IRandom
 {
   ////////////////////////////////////////////////////////////////
-  // Class members
-  ////////////////////////////////////////////////////////////////
-
-  ////////////////////////////////////////////////////////////////
   // Class Constructors & Destructor
   ////////////////////////////////////////////////////////////////
   public:
@@ -44,8 +40,21 @@ class IRandom
     /// @return a number in the range [0, 1) or [0, 1]
     const double getUniformDouble(bool bClosed = false);
 
+    /// Get the next two numbers as gaussians of center 0 and sigma^2 = 1
+    ///
+    /// The first number is returned by the function, the second one as parameter
+    const double getGaussian(double& secondValue);
+
     /// Get the next number as gaussian of center 0 and sigma^2 = 1
-    const void getGaussian(double& dZ1, double& dZ2);
+    ///
+    /// NOTE: TWO VALUES ARE GENERATED BUT ONLY ONE RETURNED !
+    const double getGaussian();
+
+  ////////////////////////////////////////////////////////////////
+  // Static members
+  ////////////////////////////////////////////////////////////////
+  private:
+    static const uint64_t maskDouble;
 };
 
 ////////////////////////////////////////////////////////////////

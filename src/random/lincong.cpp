@@ -6,11 +6,9 @@ const uint64_t LinearCongruential::s_uiMod = 0x243AC19B78405BEDULL;
 
 ////////////////////////////////////////////////////////////////
 
-LinearCongruential::LinearCongruential(uint64_t uiSeed) :
-uiCurrent_(uiSeed)
+LinearCongruential::LinearCongruential(uint64_t uiSeed)
 {
-  if (!uiSeed)
-    uiCurrent_ = 1;
+  reseed(uiSeed);
 }
 
 ////////////////////////////////////////////////////////////////
@@ -26,6 +24,13 @@ const uint64_t LinearCongruential::getNext()
 {
   uiCurrent_ *= s_uiMod;
   return uiCurrent_;
+}
+
+////////////////////////////////////////////////////////////////
+
+void LinearCongruential::reseed(uint64_t uiSeed)
+{
+  uiCurrent_ = std::max(uiSeed, uint64_t(0));
 }
 
 ////////////////////////////////////////////////////////////////

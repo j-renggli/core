@@ -34,6 +34,9 @@ class LinearCongruential : public IRandom
     /// Get the upper limit of getUniform
     virtual const uint64_t getMax() const;
 
+  public:
+    void reseed(uint64_t uiSeed);
+
   ////////////////////////////////////////////////////////////////
   // Class statics
   ////////////////////////////////////////////////////////////////

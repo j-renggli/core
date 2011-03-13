@@ -2,6 +2,8 @@
 
 namespace core {
 
+const uint64_t IRandom::maskDouble = 0xFFFFFFFFFFFFFULL;
+
 ////////////////////////////////////////////////////////////////
 
 const uint64_t IRandom::getUniform()
@@ -22,15 +24,25 @@ const int64_t IRandom::getUniform(int64_t iLow, int64_t iHigh)
 
 const double IRandom::getUniformDouble(bool bClosed)
 {
+  uint64_t uniform = getUniform() & maskDouble;
+  uint64_t max = getMax() & maskDouble;
   if (bClosed)
-    return double(getUniform()) / double(getMax() - 1);
-  else
-    return double(getUniform()) / double(getMax());
+    --max;
+
+  return double(uniform) / double(max);
 }
 
 ////////////////////////////////////////////////////////////////
 
-const void IRandom::getGaussian(double& dZ1, double& dZ2)
+const double IRandom::getGaussian()
+{
+  double skipped;
+  return getGaussian(skipped);
+}
+
+////////////////////////////////////////////////////////////////
+
+const double IRandom::getGaussian(double& secondValue)
 {
   while (true)
   {
@@ -42,9 +54,8 @@ const void IRandom::getGaussian(double& dZ1, double& dZ2)
       continue;
 
     const double dT = std::sqrt(-2. * std::log(dS) / dS);
-    dZ1 = dX * dT;
-    dZ2 = dY * dT;
-    break;
+    secondValue = dY * dT;
+    return dX * dT;
   }
 }
 

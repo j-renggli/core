@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="debug" />
-	<File name="CMakeLists.txt" open="1" top="0" tabpos="1">
+	<File name="CMakeLists.txt" open="0" top="0" tabpos="1">
 		<Cursor position="388" topLine="2" />
 	</File>
 	<File name="include/buffers/filebuffer.h" open="0" top="0" tabpos="7">
 		<Cursor position="2788" topLine="9" />
 	</File>
 	<File name="include/buffers/membuffer.h" open="0" top="0" tabpos="3">
-		<Cursor position="2249" topLine="41" />
+		<Cursor position="2249" topLine="46" />
 	</File>
 	<File name="include/buffers/tempfilebuffer.h" open="0" top="0" tabpos="3">
 		<Cursor position="504" topLine="6" />
@@ -16,8 +16,8 @@
 	<File name="include/buffers/volatilebuffer.h" open="0" top="0" tabpos="0">
 		<Cursor position="754" topLine="26" />
 	</File>
-	<File name="include/iobuffer.h" open="0" top="0" tabpos="10">
-		<Cursor position="1147" topLine="25" />
+	<File name="include/iobuffer.h" open="0" top="0" tabpos="1">
+		<Cursor position="148" topLine="0" />
 	</File>
 	<File name="include/lock.h" open="0" top="0" tabpos="0">
 		<Cursor position="97" topLine="0" />
@@ -26,13 +26,22 @@
 		<Cursor position="762" topLine="0" />
 	</File>
 	<File name="include/log/message.h" open="0" top="0" tabpos="0">
-		<Cursor position="792" topLine="23" />
+		<Cursor position="1789" topLine="51" />
+	</File>
+	<File name="include/random.h" open="0" top="0" tabpos="5">
+		<Cursor position="1499" topLine="17" />
+	</File>
+	<File name="include/random/lincong.h" open="0" top="0" tabpos="0">
+		<Cursor position="1137" topLine="11" />
 	</File>
 	<File name="include/resultcode.h" open="0" top="0" tabpos="0">
 		<Cursor position="972" topLine="0" />
 	</File>
 	<File name="includes-pch.h" open="0" top="0" tabpos="13">
 		<Cursor position="561" topLine="9" />
+	</File>
+	<File name="lpassert.h" open="0" top="0" tabpos="0">
+		<Cursor position="154" topLine="0" />
 	</File>
 	<File name="src/buffers/filebuffer.cpp" open="0" top="0" tabpos="5">
 		<Cursor position="1665" topLine="72" />
@@ -52,10 +61,13 @@
 	<File name="src/log/logmanager.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="0" topLine="32" />
 	</File>
-	<File name="src/random/lincong.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="55" topLine="0" />
+	<File name="src/random/lincong.cpp" open="0" top="0" tabpos="4">
+		<Cursor position="744" topLine="0" />
 	</File>
-	<File name="src/resultcode.cpp" open="0" top="0" tabpos="0">
+	<File name="src/random/random.cpp" open="0" top="0" tabpos="3">
+		<Cursor position="970" topLine="25" />
+	</File>
+	<File name="src/resultcode.cpp" open="0" top="0" tabpos="2">
 		<Cursor position="50" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>

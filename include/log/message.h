@@ -67,6 +67,20 @@ class Message
         ssMsg_ << "Result code [" << rc.getValue() << "]";
       return *this;
     }
+
+    /// Overloaded operator for vectors
+    template<class T> Message& operator<<(const std::vector<T>& v)
+    {
+      ssMsg_ << "[";
+      for (size_t i = 0; i < v.size(); ++i)
+      {
+        if (i > 0)
+          ssMsg_ << ", ";
+        ssMsg_ << v[i];
+      }
+      ssMsg_ << "]";
+      return *this;
+    }
 };
 
 ////////////////////////////////////////////////////////////////
