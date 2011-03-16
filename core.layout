@@ -2,7 +2,7 @@
 <CodeBlocks_layout_file>
 	<ActiveTarget name="debug" />
 	<File name="CMakeLists.txt" open="0" top="0" tabpos="1">
-		<Cursor position="388" topLine="2" />
+		<Cursor position="166" topLine="2" />
 	</File>
 	<File name="include/buffers/filebuffer.h" open="0" top="0" tabpos="7">
 		<Cursor position="2788" topLine="9" />
@@ -29,7 +29,7 @@
 		<Cursor position="1789" topLine="51" />
 	</File>
 	<File name="include/random.h" open="0" top="0" tabpos="5">
-		<Cursor position="1499" topLine="17" />
+		<Cursor position="1524" topLine="29" />
 	</File>
 	<File name="include/random/lincong.h" open="0" top="0" tabpos="0">
 		<Cursor position="1137" topLine="11" />
@@ -65,7 +65,7 @@
 		<Cursor position="744" topLine="0" />
 	</File>
 	<File name="src/random/random.cpp" open="0" top="0" tabpos="3">
-		<Cursor position="970" topLine="25" />
+		<Cursor position="884" topLine="17" />
 	</File>
 	<File name="src/resultcode.cpp" open="0" top="0" tabpos="2">
 		<Cursor position="50" topLine="0" />

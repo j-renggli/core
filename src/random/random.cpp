@@ -34,20 +34,22 @@ const double IRandom::getUniformDouble(bool bClosed)
 
 ////////////////////////////////////////////////////////////////
 
-const double IRandom::getGaussian()
+const double IRandom::getGaussian(const double center, const double sigma)
 {
   double skipped;
-  return getGaussian(skipped);
+  double base = getGaussians(skipped);
+  return base * sigma + center;
 }
 
 ////////////////////////////////////////////////////////////////
 
-const double IRandom::getGaussian(double& secondValue)
+const double IRandom::getGaussians(double& secondValue)
 {
+  /// Generate using Marsaglia polar method
   while (true)
   {
-    const double dX = getUniformDouble();
-    const double dY = getUniformDouble();
+    const double dX = 2. * getUniformDouble() - 1.;
+    const double dY = 2. * getUniformDouble() - 1.;
 
     const double dS = dX * dX + dY * dY;
     if (dS >= 1.)

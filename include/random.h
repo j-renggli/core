@@ -43,12 +43,14 @@ class IRandom
     /// Get the next two numbers as gaussians of center 0 and sigma^2 = 1
     ///
     /// The first number is returned by the function, the second one as parameter
-    const double getGaussian(double& secondValue);
+    const double getGaussians(double& secondValue);
 
-    /// Get the next number as gaussian of center 0 and sigma^2 = 1
+    /// Get the next number as gaussian of given center and sigma^2
     ///
+    /// @param center the value where the gaussian should be centered to
+    /// @param sigma the width of the curve (~95% inside 2 sigma)
     /// NOTE: TWO VALUES ARE GENERATED BUT ONLY ONE RETURNED !
-    const double getGaussian();
+    const double getGaussian(const double center = 0., const double sigma = 1.);
 
   ////////////////////////////////////////////////////////////////
   // Static members
