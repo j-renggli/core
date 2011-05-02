@@ -5,10 +5,10 @@
 		<Cursor position="166" topLine="2" />
 	</File>
 	<File name="include/buffers/filebuffer.h" open="0" top="0" tabpos="7">
-		<Cursor position="2788" topLine="9" />
+		<Cursor position="690" topLine="9" />
 	</File>
 	<File name="include/buffers/membuffer.h" open="0" top="0" tabpos="3">
-		<Cursor position="2249" topLine="46" />
+		<Cursor position="1486" topLine="46" />
 	</File>
 	<File name="include/buffers/tempfilebuffer.h" open="0" top="0" tabpos="3">
 		<Cursor position="504" topLine="6" />
@@ -25,7 +25,7 @@
 	<File name="include/log/logmanager.h" open="0" top="0" tabpos="0">
 		<Cursor position="762" topLine="0" />
 	</File>
-	<File name="include/log/message.h" open="0" top="0" tabpos="0">
+	<File name="include/log/message.h" open="1" top="0" tabpos="1">
 		<Cursor position="1247" topLine="33" />
 	</File>
 	<File name="include/random.h" open="0" top="0" tabpos="5">
@@ -44,7 +44,7 @@
 		<Cursor position="154" topLine="0" />
 	</File>
 	<File name="src/buffers/filebuffer.cpp" open="0" top="0" tabpos="5">
-		<Cursor position="1665" topLine="72" />
+		<Cursor position="1666" topLine="72" />
 	</File>
 	<File name="src/buffers/membuffer.cpp" open="0" top="0" tabpos="1">
 		<Cursor position="499" topLine="12" />
@@ -69,5 +69,8 @@
 	</File>
 	<File name="src/resultcode.cpp" open="0" top="0" tabpos="2">
 		<Cursor position="50" topLine="0" />
+	</File>
+	<File name="src/string.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="151" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>
