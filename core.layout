@@ -25,7 +25,7 @@
 	<File name="include/log/logmanager.h" open="0" top="0" tabpos="0">
 		<Cursor position="762" topLine="0" />
 	</File>
-	<File name="include/log/message.h" open="1" top="0" tabpos="1">
+	<File name="include/log/message.h" open="0" top="0" tabpos="1">
 		<Cursor position="1247" topLine="33" />
 	</File>
 	<File name="include/random.h" open="0" top="0" tabpos="5">
