@@ -17,7 +17,7 @@
 		<Cursor position="754" topLine="26" />
 	</File>
 	<File name="include/iobuffer.h" open="0" top="0" tabpos="1">
-		<Cursor position="148" topLine="0" />
+		<Cursor position="1181" topLine="8" />
 	</File>
 	<File name="include/lock.h" open="0" top="0" tabpos="0">
 		<Cursor position="97" topLine="0" />
@@ -26,7 +26,7 @@
 		<Cursor position="762" topLine="0" />
 	</File>
 	<File name="include/log/message.h" open="0" top="0" tabpos="1">
-		<Cursor position="1247" topLine="33" />
+		<Cursor position="1247" topLine="34" />
 	</File>
 	<File name="include/random.h" open="0" top="0" tabpos="5">
 		<Cursor position="1524" topLine="29" />
@@ -47,7 +47,7 @@
 		<Cursor position="1666" topLine="72" />
 	</File>
 	<File name="src/buffers/membuffer.cpp" open="0" top="0" tabpos="1">
-		<Cursor position="499" topLine="12" />
+		<Cursor position="1644" topLine="45" />
 	</File>
 	<File name="src/buffers/tempfilebuffer.cpp" open="0" top="0" tabpos="4">
 		<Cursor position="848" topLine="10" />
@@ -56,7 +56,7 @@
 		<Cursor position="689" topLine="0" />
 	</File>
 	<File name="src/iobuffer.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="2621" topLine="123" />
+		<Cursor position="2702" topLine="123" />
 	</File>
 	<File name="src/log/logmanager.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="0" topLine="32" />
