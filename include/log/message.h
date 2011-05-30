@@ -54,6 +54,16 @@ class Message
       return *this;
     }
 
+    /// Overloaded operator for booleans
+    Message& operator<<(const bool& v)
+    {
+      if (v)
+        ssMsg_ << "TRUE";
+      else
+        ssMsg_ << "FALSE";
+      return *this;
+    }
+
     /// Overloaded operator for result codes
     Message& operator<<(const ResultCode& rc)
     {

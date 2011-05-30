@@ -22,11 +22,11 @@
 	<File name="include/lock.h" open="0" top="0" tabpos="0">
 		<Cursor position="97" topLine="0" />
 	</File>
-	<File name="include/log/logmanager.h" open="0" top="0" tabpos="0">
-		<Cursor position="762" topLine="0" />
+	<File name="include/log/logmanager.h" open="0" top="0" tabpos="8">
+		<Cursor position="762" topLine="63" />
 	</File>
-	<File name="include/log/message.h" open="1" top="0" tabpos="10">
-		<Cursor position="1247" topLine="25" />
+	<File name="include/log/message.h" open="1" top="0" tabpos="2">
+		<Cursor position="1475" topLine="50" />
 	</File>
 	<File name="include/random.h" open="0" top="0" tabpos="5">
 		<Cursor position="1524" topLine="24" />
@@ -58,8 +58,8 @@
 	<File name="src/iobuffer.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="2702" topLine="123" />
 	</File>
-	<File name="src/log/logmanager.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="0" topLine="11" />
+	<File name="src/log/logmanager.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="0" topLine="8" />
 	</File>
 	<File name="src/random/lincong.cpp" open="0" top="0" tabpos="4">
 		<Cursor position="744" topLine="0" />
