@@ -20,13 +20,13 @@ class MemBuffer : virtual public IReadWriteBuffer
     Buffer* pBuffer_;
 
     /// The maximum size of the buffer
-    size_t uiMaxSize_;
+    size_t maxSize_;
 
     /// The current size of the buffer
-    size_t uiSize_;
+    size_t size_;
 
     /// The current position
-    size_t uiPos_;
+    size_t pos_;
 
   ////////////////////////////////////////////////////////////////
   // Constructors & Destructor
@@ -51,33 +51,36 @@ class MemBuffer : virtual public IReadWriteBuffer
   ////////////////////////////////////////////////////////////////
   public:
     /// Clear the buffer
-    void clear() { uiSize_ = 0; uiPos_ = 0; }
+    void clear() { size_ = 0; pos_ = 0; }
 
     /// Is the buffer empty ?
-    virtual bool isEmpty() const { return uiSize_ == 0; }
+    virtual bool isEmpty() const { return size_ == 0; }
 
     /// Direct access to buffer
     Buffer* getBuffer() { return pBuffer_; }
     const Buffer* getBuffer() const { return pBuffer_; }
 
     /// Get the position of the buffer's cursor
-    virtual size_t getPosition() const { return uiPos_; }
+    virtual size_t getPosition() const { return pos_; }
 
     /// Read N characters
-    virtual void readData(Buffer* pBuffer, size_t uiSize);
+    virtual void readData(Buffer* pBuffer, size_t size);
+
+    /// Reserve enough space for the buffer without resizing it
+    virtual void reserve(size_t newSize);
 
     /// Resize the buffer : max size might be larger to avoid too many reallocations
-    void resize(size_t uiNewSize);
+    void resize(size_t newSize);
 
     /// Set the position of the buffer's cursor
     /// @param uiNewPos the position; uiSize if uiNewPos >= uiSize
-    void setPosition(size_t uiNewPos);
+    void setPosition(size_t newPos);
 
     /// Get the current size of the buffer
-    virtual size_t getSize() const { return uiSize_; }
+    virtual size_t getSize() const { return size_; }
 
     /// Write N characters
-    virtual void writeData(const Buffer* pBuffer, size_t uiSize);
+    virtual void writeData(const Buffer* pBuffer, size_t size);
 };
 
 }

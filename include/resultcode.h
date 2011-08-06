@@ -39,6 +39,7 @@ class ResultCode
   public:
     ResultCode(const ResultCode& rC) : iValue_(rC.iValue_) {}
     ResultCode(int32_t iValue) : iValue_(iValue) {}
+    ResultCode(const ELevel level, int32_t value) : iValue_(level | value) {}
 
   ////////////////////////////////////////////////////////////////
   // Operators

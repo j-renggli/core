@@ -8,9 +8,9 @@ namespace core {
 
 MemBuffer::MemBuffer() :
 pBuffer_(NULL),
-uiMaxSize_(0),
-uiSize_(0),
-uiPos_(0)
+maxSize_(0),
+size_(0),
+pos_(0)
 {
 }
 
@@ -18,9 +18,9 @@ uiPos_(0)
 
 MemBuffer::MemBuffer(const IReadBuffer& buffer):
 pBuffer_(NULL),
-uiMaxSize_(0),
-uiSize_(0),
-uiPos_(0)
+maxSize_(0),
+size_(0),
+pos_(0)
 {
   *this = buffer;
 }
@@ -29,9 +29,9 @@ uiPos_(0)
 
 MemBuffer::MemBuffer(const MemBuffer& buffer):
 pBuffer_(NULL),
-uiMaxSize_(0),
-uiSize_(0),
-uiPos_(0)
+maxSize_(0),
+size_(0),
+pos_(0)
 {
   *this = buffer;
 }
@@ -54,9 +54,9 @@ MemBuffer& MemBuffer::operator=(const IReadBuffer& buffer)
   delete pBuffer_;
   pBuffer_ = new Buffer[buffer.getSize()];
   memcpy(pBuffer_, buffer.getBuffer(), buffer.getSize());
-  uiMaxSize_ = buffer.getSize();
-  uiSize_ = uiMaxSize_;
-  uiPos_ = 0;
+  maxSize_ = buffer.getSize();
+  size_ = maxSize_;
+  pos_ = 0;
   return *this;
 }
 
@@ -70,56 +70,63 @@ MemBuffer& MemBuffer::operator=(const MemBuffer& buffer)
   delete pBuffer_;
   pBuffer_ = new Buffer[buffer.getSize()];
   memcpy(pBuffer_, buffer.getBuffer(), buffer.getSize());
-  uiMaxSize_ = buffer.getSize();
-  uiSize_ = uiMaxSize_;
-  uiPos_ = 0;
+  maxSize_ = buffer.getSize();
+  size_ = maxSize_;
+  pos_ = 0;
   return *this;
 }
 
 ////////////////////////////////////////////////////////////////
 
-void MemBuffer::readData(Buffer* pBuffer, size_t uiSize)
+void MemBuffer::readData(Buffer* pBuffer, size_t size)
 {
-  ASSERT(uiPos_ + uiSize <= uiSize_);
+  ASSERT(pos_ + size <= size_);
 
-  memcpy(pBuffer, &pBuffer_[uiPos_], uiSize);
-  uiPos_ += uiSize;
+  memcpy(pBuffer, &pBuffer_[pos_], size);
+  pos_ += size;
 }
 
 ////////////////////////////////////////////////////////////////
 
-void MemBuffer::resize(size_t uiNewSize)
+void MemBuffer::reserve(size_t newSize)
 {
-  if (uiNewSize > uiMaxSize_)
+  if (newSize > maxSize_)
   {
     // Reallocate
-    uiMaxSize_ = uiNewSize * 6 / 5; // Slightly larger
-    Buffer* pNewBuffer = new Buffer[uiMaxSize_];
-    memcpy(pNewBuffer, pBuffer_, uiSize_);
+    maxSize_ = newSize * 6 / 5; // Slightly larger
+    Buffer* pNewBuffer = new Buffer[maxSize_];
+    memcpy(pNewBuffer, pBuffer_, size_);
     delete[] pBuffer_;
     pBuffer_ = pNewBuffer;
   }
-
-  uiSize_ = uiNewSize;
 }
 
 ////////////////////////////////////////////////////////////////
 
-void MemBuffer::setPosition(size_t uiNewPos)
+void MemBuffer::resize(size_t newSize)
 {
-  if (uiNewPos > uiSize_)
-    uiPos_ = uiSize_;
+  reserve(newSize);
+
+  size_ = newSize;
+}
+
+////////////////////////////////////////////////////////////////
+
+void MemBuffer::setPosition(size_t newPos)
+{
+  if (newPos > size_)
+    pos_ = size_;
   else
-    uiPos_ = uiNewPos;
+    pos_ = newPos;
 }
 
 ////////////////////////////////////////////////////////////////
 
-void MemBuffer::writeData(const Buffer* pBuffer, size_t uiSize)
+void MemBuffer::writeData(const Buffer* pBuffer, size_t size)
 {
-  resize(uiPos_ + uiSize);
-  memcpy(&pBuffer_[uiPos_], pBuffer, uiSize);
-  uiPos_ += uiSize;
+  resize(pos_ + size);
+  memcpy(&pBuffer_[pos_], pBuffer, size);
+  pos_ += size;
 }
 
 ////////////////////////////////////////////////////////////////

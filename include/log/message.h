@@ -25,7 +25,16 @@ class Message
 
     /// Message
     std::stringstream ssMsg_;
+  
+    /// Default flags
+    std::ios_base::fmtflags flags_;
 
+  public:
+    Message()
+    {
+      flags_ = ssMsg_.flags();
+    }
+    
   public:
     /// Reset the message to accept next one
     void reset(int iLevel, const boost::filesystem::path& pathFile, int iLine)
@@ -35,6 +44,7 @@ class Message
       pathFile_ = pathFile;
       iLine_ = iLine;
       ssMsg_.str("");
+      ssMsg_.flags(flags_);
     }
 
     const boost::filesystem::path& getFile() const { return pathFile_; }
