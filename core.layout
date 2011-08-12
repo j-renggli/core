@@ -55,8 +55,8 @@
 	<File name="src/buffers/volatilebuffer.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="689" topLine="0" />
 	</File>
-	<File name="src/iobuffer.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="2702" topLine="123" />
+	<File name="src/iobuffer.cpp" open="1" top="1" tabpos="3">
+		<Cursor position="2702" topLine="270" />
 	</File>
 	<File name="src/log/logmanager.cpp" open="0" top="0" tabpos="1">
 		<Cursor position="0" topLine="8" />
