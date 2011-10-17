@@ -39,6 +39,7 @@ boost_filesystem-mt
 boost_system-mt
 boost_thread-mt
 icuio
+icuuc
 )
 
 ######## LIBRARIES ########

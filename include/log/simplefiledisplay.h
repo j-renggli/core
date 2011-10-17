@@ -19,7 +19,7 @@ class SimpleFileDisplay : public IDisplay
   public:
     SimpleFileDisplay(const boost::filesystem::path& pathFile, int iMinLevel) : iMinLevel_(iMinLevel)
     {
-      file_.open(pathFile.native_file_string().c_str());
+      file_.open(pathFile.string().c_str());
     }
 
     ~SimpleFileDisplay()
