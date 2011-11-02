@@ -26,7 +26,6 @@ src/buffers/volatilebuffer.cpp
 
 src/log/coutdisplay.cpp
 src/log/logmanager.cpp
-src/log/simplefiledisplay.cpp
 
 src/random/lincong.cpp
 src/random/random.cpp

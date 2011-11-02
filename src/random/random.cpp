@@ -15,9 +15,10 @@ const uint64_t IRandom::getUniform()
 
 const int64_t IRandom::getUniform(int64_t iLow, int64_t iHigh)
 {
-  double dStart = double(std::min(iLow, iHigh)) - 0.5;
+  double dStart = std::min(iLow, iHigh);
   double dRange = double(std::abs(iHigh - iLow)) + 1.;
-  return int64_t(dRange * getUniformDouble() + dStart);
+  double val = dRange * getUniformDouble(false);
+  return dStart + std::floor(val);
 }
 
 ////////////////////////////////////////////////////////////////
