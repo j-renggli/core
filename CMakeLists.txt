@@ -1,6 +1,6 @@
 PROJECT(core)
 
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 2.8)
 
 ######## SETUP ########
 
@@ -9,6 +9,9 @@ SET(CMAKE_CXX_FLAGS_DEBUG "-Wall -O -ansi -pedantic -g -pg -Wno-long-long -DDEBU
 SET(CMAKE_CXX_FLAGS_RELEASE "-Wall -O3 -ansi -pedantic -g -pg  -Wno-long-long")
 
 SET(CMAKE_LIBRARY_OUTPUT_DIRECTORY ../bin)
+
+FIND_PACKAGE(ICU 4.4 REQUIRED)
+FIND_PACKAGE(Boost REQUIRED)
 
 ######## SOURCE CODE ########
 
