@@ -156,7 +156,7 @@ ResultCode FileReadWriteBuffer::restore()
 
 ResultCode FileReadWriteBuffer::serialise()
 {
-  std::ofstream fileOut(pathFile_.string().c_str(), std::ios::binary);
+  std::ofstream fileOut(pathFile_.string().c_str(), std::ios::binary | std::ios::trunc);
   if (!fileOut)
   {
     return rcFailure;
