@@ -11,7 +11,7 @@ SET(CMAKE_CXX_FLAGS_RELEASE "-Wall -O3 -ansi -pedantic -g -pg  -Wno-long-long")
 SET(CMAKE_LIBRARY_OUTPUT_DIRECTORY ../bin)
 
 FIND_PACKAGE(ICU 4.4 REQUIRED)
-FIND_PACKAGE(Boost REQUIRED)
+FIND_PACKAGE(Boost REQUIRED COMPONENTS filesystem system thread)
 
 ######## SOURCE CODE ########
 
@@ -37,9 +37,9 @@ src/random/random.cpp
 ######## LINKER ########
 
 LINK_LIBRARIES(
-boost_filesystem-mt
-boost_system-mt
-boost_thread-mt
+boost_filesystem
+boost_system
+boost_thread
 icuio
 icuuc
 )
