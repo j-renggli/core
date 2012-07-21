@@ -6,13 +6,6 @@ const uint64_t LinearCongruential::s_uiMod = 0x243AC19B78405BEDULL;
 
 ////////////////////////////////////////////////////////////////
 
-LinearCongruential::LinearCongruential()
-{
-  reseed(time(NULL));
-}
-
-////////////////////////////////////////////////////////////////
-
 LinearCongruential::LinearCongruential(uint64_t uiSeed)
 {
   reseed(uiSeed);

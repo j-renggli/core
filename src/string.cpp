@@ -16,7 +16,7 @@ void String::deleteUTF8(const u_int8_t* pszText)
 
 ////////////////////////////////////////////////////////////////
 
-const uint8_t* String::newUTF8(const UnicodeString& strText, size_t& bytelen)
+const uint8_t* String::newUTF8(const UnicodeString& strText)
 {
   int iSize = 2 * strText.length() + 1;
   u_int8_t* pszText;
@@ -28,7 +28,6 @@ const uint8_t* String::newUTF8(const UnicodeString& strText, size_t& bytelen)
   UConverter* conv = ucnv_open("UTF-8", &status);
   if (U_FAILURE(status))
   {
-    bytelen = 0;
     pszText[0] = '\0';
     return pszText;
   }
@@ -36,7 +35,6 @@ const uint8_t* String::newUTF8(const UnicodeString& strText, size_t& bytelen)
   length = ucnv_fromUChars(conv, (char*)pszText, iSize, strText.getBuffer(), strText.length(), &status);
   if (U_SUCCESS(status))
   {
-    bytelen = length;
     ucnv_close(conv);
     return pszText;
   }
@@ -51,12 +49,10 @@ const uint8_t* String::newUTF8(const UnicodeString& strText, size_t& bytelen)
   ucnv_close(conv);
   if (U_SUCCESS(status))
   {
-    bytelen = length;
     return pszText;
   }
   delete[] pszText;
 
-  bytelen = 0;
   pszText = NULL;
   return pszText;
 }

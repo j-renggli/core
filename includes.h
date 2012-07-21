@@ -1,6 +1,3 @@
-#ifndef INCLUDES_CORE
-#define INCLUDES_CORE
+#pragma once
 
 #include "includes-pch.h"
-
-#endif

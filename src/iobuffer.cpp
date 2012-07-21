@@ -16,14 +16,6 @@ void IReadBuffer::readValue(bool& value)
 ////////////////////////////////////////////////////////////////
 
 template <>
-void IReadBuffer::readValue(char& value)
-{
-  readData((core::Buffer*)(&value), 1);
-}
-
-////////////////////////////////////////////////////////////////
-
-template <>
 void IReadBuffer::readValue(u_int8_t& value)
 {
   readData(&value, 1);
@@ -167,18 +159,6 @@ template <>
 void IReadBuffer::readValue(UnicodeString& value)
 {
   uint32_t uiLen = read<uint32_t>();
-  Buffer* pszBuffer = new Buffer[uiLen];
-  readData(pszBuffer, uiLen);
-  value = core::String::uncompressFromBuffer(pszBuffer, uiLen);
-  delete[] pszBuffer;
-}
-
-////////////////////////////////////////////////////////////////
-
-template <>
-void IReadBuffer::readValue(UnicodeString& value, bool isBigEndian)
-{
-  uint32_t uiLen = read<uint32_t>(isBigEndian);
   Buffer* pszBuffer = new Buffer[uiLen];
   readData(pszBuffer, uiLen);
   value = core::String::uncompressFromBuffer(pszBuffer, uiLen);
