@@ -1,6 +1,6 @@
 PROJECT(core)
 
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 2.8)
 
 ######## SETUP ########
 
@@ -29,7 +29,6 @@ src/buffers/volatilebuffer.cpp
 
 src/log/coutdisplay.cpp
 src/log/logmanager.cpp
-src/log/simplefiledisplay.cpp
 
 src/random/lincong.cpp
 src/random/random.cpp
@@ -42,6 +41,7 @@ boost_filesystem
 boost_system
 boost_thread
 icuio
+icuuc
 )
 
 ######## LIBRARIES ########

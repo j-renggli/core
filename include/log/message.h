@@ -25,7 +25,7 @@ class Message
 
     /// Message
     std::stringstream ssMsg_;
-  
+
     /// Default flags
     std::ios_base::fmtflags flags_;
 
@@ -34,7 +34,7 @@ class Message
     {
       flags_ = ssMsg_.flags();
     }
-    
+
   public:
     /// Reset the message to accept next one
     void reset(int iLevel, const boost::filesystem::path& pathFile, int iLine)
@@ -97,6 +97,22 @@ class Message
         if (i > 0)
           ssMsg_ << ", ";
         ssMsg_ << v[i];
+      }
+      ssMsg_ << "]";
+      return *this;
+    }
+
+    /// Overloaded operator for maps
+    template<class K, class V> Message& operator<<(const std::map<K, V>& m)
+    {
+      ssMsg_ << "[";
+      bool first = true;
+      for (typename std::map<K, V>::const_iterator it = m.begin(); it != m.end(); ++it) {
+        if (first)
+          first = false;
+        else
+          ssMsg_ << "\n ";
+        ssMsg_ << it->first << " => " << it->second;
       }
       ssMsg_ << "]";
       return *this;

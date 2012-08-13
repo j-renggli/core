@@ -40,7 +40,7 @@ ResultCode FileReadBuffer::restore(const boost::filesystem::path& pathFile)
     return rcFailure;
   }
 
-  std::ifstream fileIn(pathFile.native_file_string().c_str(), std::ios::binary);
+  std::ifstream fileIn(pathFile.string().c_str(), std::ios::binary);
   if (!fileIn)
   {
     return rcFailure;
@@ -116,7 +116,7 @@ ResultCode FileReadWriteBuffer::restore()
     return rcFailure;
   }
 
-  std::ifstream fileIn(pathFile_.native_file_string().c_str(), std::ios::binary);
+  std::ifstream fileIn(pathFile_.string().c_str(), std::ios::binary);
   if (!fileIn)
   {
     return rcFailure;
@@ -156,7 +156,7 @@ ResultCode FileReadWriteBuffer::restore()
 
 ResultCode FileReadWriteBuffer::serialise()
 {
-  std::ofstream fileOut(pathFile_.native_file_string().c_str(), std::ios::binary);
+  std::ofstream fileOut(pathFile_.string().c_str(), std::ios::binary | std::ios::trunc);
   if (!fileOut)
   {
     return rcFailure;

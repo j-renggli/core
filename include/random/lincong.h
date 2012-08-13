@@ -20,6 +20,10 @@ class LinearCongruential : public IRandom
   // Class Constructors & Destructor
   ////////////////////////////////////////////////////////////////
   public:
+    /// A PRNG with current time as seed
+    LinearCongruential();
+
+    /// A PRNG with specific seed
     LinearCongruential(uint64_t uiSeed);
 
     virtual ~LinearCongruential() {}

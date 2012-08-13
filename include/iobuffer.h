@@ -78,6 +78,16 @@ class IReadBuffer
       }
     }
 
+    /// Read n values at a time
+    template <class T>
+    void readValues(T*& values, size_t length, bool isBigEndian = false)
+    {
+      for (size_t i = 0; i < length; ++i)
+      {
+        readValue(values[i], isBigEndian);
+      }
+    }
+
     /// Read the most common objects in vector form
     template <class T>
     void readValue(std::vector<T>& vValues)

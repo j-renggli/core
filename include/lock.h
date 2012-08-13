@@ -1,5 +1,4 @@
-#ifndef ARISTOTELES_COMMON_THREADING_LOCK_H
-#define ARISTOTELES_COMMON_THREADING_LOCK_H
+#pragma once
 
 // Boost
 #include <boost/thread/condition.hpp>
@@ -32,5 +31,3 @@ typedef boost::unique_lock<SharedMutex> WriterLock;
 typedef boost::condition_variable LockCondition;
 
 }
-
-#endif

@@ -16,7 +16,7 @@ class String
   ////////////////////////////////////////////////////////////////
   public:
     static void deleteUTF8(const u_int8_t* pszText);
-    static const uint8_t* newUTF8(const UnicodeString& strText);
+    static const uint8_t* newUTF8(const UnicodeString& strText, size_t& bytelen);
 
     static void deleteBuffer(const Buffer* pBuffer);
     static const Buffer* compressToBuffer(const UnicodeString& strText, u_int32_t& uiLength);
