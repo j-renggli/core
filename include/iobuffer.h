@@ -48,6 +48,12 @@ class IReadBuffer
       return value;
     }
 
+    /// Consider the whole buffer as a UTF8 string
+    UnicodeString readAsUTF8() const
+    {
+      return UnicodeString::fromUTF8(StringPiece((const char*)getBuffer(), getSize()));
+    }
+
     /// Read N characters
     virtual void readData(Buffer* pBuffer, const size_t uiSize) = 0;
 
