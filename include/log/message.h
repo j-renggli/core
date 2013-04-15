@@ -74,6 +74,13 @@ class Message
       return *this;
     }
 
+    /// Overloaded operator for booleans
+    Message& operator<<(const UChar& c)
+    {
+      ssMsg_ << char(c);
+      return *this;
+    }
+
     /// Overloaded operator for result codes
     Message& operator<<(const ResultCode& rc)
     {
