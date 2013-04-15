@@ -96,9 +96,20 @@ class Message
       {
         if (i > 0)
           ssMsg_ << ", ";
-        ssMsg_ << v[i];
+        operator<<(v[i]);
       }
       ssMsg_ << "]";
+      return *this;
+    }
+
+    /// Overloaded operator for pairs
+    template<class A, class B> Message& operator<<(const std::pair<A, B>& p)
+    {
+      ssMsg_ << "<";
+      operator<<(p.first);
+      ssMsg_ << ", ";
+      operator<<(p.second);
+      ssMsg_ << ">";
       return *this;
     }
 
@@ -112,7 +123,9 @@ class Message
           first = false;
         else
           ssMsg_ << "\n ";
-        ssMsg_ << it->first << " => " << it->second;
+        operator<<(it->first);
+        ssMsg_ << " => ";
+        operator<<(it->second);
       }
       ssMsg_ << "]";
       return *this;
